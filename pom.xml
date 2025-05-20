@@ -17,7 +17,7 @@
     <build>
         <resources>
             <resource>
-                <directory>src/test/resources</directory>
+                <directory>src/test/scenarios</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>
@@ -85,7 +85,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>crm-ui-test-automation</projectName>
+                            <projectName>prototype-test-automation</projectName>
                             <skip>false</skip>
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <inputDirectory>${project.build.directory}/cucumber-reports/</inputDirectory>
