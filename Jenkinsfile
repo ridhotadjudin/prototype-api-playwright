@@ -24,13 +24,7 @@ pipeline {
             }
         }
 
-        stage('Install Playwright Browsers') {
-            steps {
-                bat 'mvn playwright:install'
-            }
-        }
-
-        stage('Run Tests') {
+        stage('Run API Tests') {
             steps {
                 bat 'mvn clean test'
             }
@@ -49,20 +43,17 @@ pipeline {
 
             junit '**/TEST-*.xml'
 
-            archiveArtifacts artifacts: 'target/cucumber-reports/**/*', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'target/**/cucumber*.json', allowEmptyArchive: true
 
             // If you're generating HTML reports
             publishHTML([
                 allowMissing: true,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
-                reportDir: 'target/playwright-report',
+                reportDir: 'target/cucumber-reports',
                 reportFiles: 'index.html',
-                reportName: 'Playwright Report'
+                reportName: 'API Test Report'
             ])
-
-            // Clean up workspace
-            cleanWs()
         }
     }
 }
