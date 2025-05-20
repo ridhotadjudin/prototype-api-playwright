@@ -20,19 +20,19 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'mvn dependency:resolve'
+                bat 'mvn dependency:resolve'
             }
         }
 
         stage('Install Playwright Browsers') {
             steps {
-                sh 'mvn playwright:install'
+                bat 'mvn playwright:install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'mvn clean test'
+                bat 'mvn clean test'
             }
         }
     }
