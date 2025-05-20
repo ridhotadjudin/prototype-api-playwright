@@ -30,11 +30,13 @@ public class FactStepDefinitions {
 
     @Then("the response status code should be {int}")
     public void the_response_status_code_should_be(int expectedStatusCode) {
+        System.out.println("Assert response status code");
         assertEquals(expectedStatusCode, response.status());
     }
 
     @Then("the response should contain valid Fact details")
     public void the_response_should_contain_valid_fact_details() {
+        System.out.println("Assert response Fact Details");
         assertNotNull(FactResponse);
         assertTrue(FactResponse.getFact() != null && !FactResponse.getFact().isEmpty());
         assertTrue(FactResponse.getLength() > 0);
@@ -42,6 +44,7 @@ public class FactStepDefinitions {
 
     @Then("the response should contain fields: fact, length")
     public void the_response_should_contain_required_fields() {
+        System.out.println("Assert response body");
         assertNotNull(FactResponse);
         assertTrue(FactResponse.getLength() > 0);
         assertNotNull(FactResponse.getFact());

@@ -21,6 +21,7 @@ public class FactResponse {
     // Getters and setters with optional Jackson annotations
     @JsonProperty("fact")
     public String getFact() {
+        System.out.println("JSON Property Fact");
         return fact;
     }
 
@@ -31,6 +32,7 @@ public class FactResponse {
 
     @JsonProperty("length")
     public int getLength() {
+        System.out.println("JSON Property Length");
         return length;
     }
 
@@ -41,6 +43,7 @@ public class FactResponse {
 
     @Override
     public String toString() {
+        System.out.println("Override to string");
         return "FactResponse{" +
                 "fact='" + fact + '\'' +
                 ", length=" + length +

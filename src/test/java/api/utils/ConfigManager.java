@@ -19,10 +19,14 @@ public class ConfigManager {
     }
 
     public static String getBaseUrl() {
-        return properties.getProperty("base.url");
+        String baseURL = properties.getProperty("base.url");
+        System.out.println("Base URL : " + baseURL);
+        return baseURL;
     }
 
     public static int getApiTimeout() {
-        return Integer.parseInt(properties.getProperty("api.timeout"));
+        int timeout = Integer.parseInt(properties.getProperty("api.timeout"));
+        System.out.println("Get API Timeout");
+        return timeout;
     }
 }

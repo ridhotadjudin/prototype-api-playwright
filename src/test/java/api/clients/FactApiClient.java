@@ -3,7 +3,6 @@ package api.clients;
 import api.models.FactResponse;
 import api.utils.ApiRequestBuilder;
 import com.microsoft.playwright.APIResponse;
-import com.microsoft.playwright.options.RequestOptions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class FactApiClient {
@@ -12,9 +11,11 @@ public class FactApiClient {
 
     public FactApiClient() {
         this.requestBuilder = new ApiRequestBuilder();
+        System.out.println("Initialize Fact API Client");
     }
 
     public APIResponse getFact() {
+        System.out.println("Add endpoint");
         return requestBuilder.getRequestContext()
                 .get("/fact");
     }
@@ -27,6 +28,7 @@ public class FactApiClient {
             if (response.ok() && response.status() == 200) {
                 String responseText = response.text();
                 if (responseText != null && !responseText.isEmpty()) {
+                    System.out.println("Get Fact as Object");
                     // Use Jackson's ObjectMapper to deserialize JSON to FactResponse
                     return objectMapper.readValue(responseText, FactResponse.class);
                 }
