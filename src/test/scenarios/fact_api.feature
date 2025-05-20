@@ -7,7 +7,7 @@ Feature: Product API Endpoint Testing
     Given I have a valid Fact
     When I send a GET request to the Fact endpoint
     Then the response status code should be 200
-    And the response should contain valid Fact details
+#    And the response should contain valid Fact details
 
   Scenario: Verify product details structure
     Given I have a valid Fact

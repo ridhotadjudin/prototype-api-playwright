@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss,SSS} %p [%c] %m%n"/>
+        </Console>
+        <!--
+        <File name="LogFile" fileName="logs/isfw.log" append="false">
+            <PatternLayout pattern="[%t] %d{HH:mm:ss,SSS} %-5p [%c] %m%n"/>
+        </File>
+        <RollingFile name="ScenarioLogFile" fileName="logs/scenario.log"
+                     filePattern="logs/scenario-%d{MM-dd-yy}.log.gz">
+            <PatternLayout pattern="%d{HH:mm:ss} %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+        -->
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <!--
+        <Logger name="com.qmetry.qaf" level="info" additivity="false">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name="com.qmetry.qaf.automation.step" level="debug" additivity="false">
+            <AppenderRef ref="ScenarioLogFile"/>
+        </Logger>
+        -->
+    </Loggers>
+</Configuration>
